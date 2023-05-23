@@ -3,6 +3,8 @@ package listen;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+
+import main.Calculator;
 import org.jetbrains.annotations.NotNull;
 import window.*;
 
@@ -13,59 +15,60 @@ public class ButtonListenerOne extends TextPanel implements ActionListener {
         JButton[] nb = ButtonPanelOne.getNumButtons();
         for(int i = 0; i < nb.length - 1; ++i) {
             if (e.getSource() == nb[i]) {
-                textField.setText(textField.getText().concat(String.valueOf(i)));
+                TextPanel.setText(TextPanel.getText().concat(String.valueOf(i)));
             }
         }
 
         // decimal
         if (e.getSource() == nb[10]) {
-            if(!(textField.getText().contains(".")))
-                textField.setText(textField.getText().concat("."));
+            if(!(TextPanel.getText().contains(".")))
+                TextPanel.setText(TextPanel.getText().concat("."));
         }
 
         // clear
         if (e.getSource() == this.fb1[0]) {
-            textField.setText("");
+            TextPanel.setText("");
         }
 
         // positive / negative
         if (e.getSource() == this.fb1[1]) {
-            textField.setText(String.valueOf(-1 * Integer.parseInt(textField.getText())));
+            TextPanel.setText(String.valueOf(-1 * Integer.parseInt(TextPanel.getText())));
         }
 
         // percent
         if (e.getSource() == this.fb1[2]) {
-            textField.setText(String.valueOf(0.01 * Integer.parseInt(textField.getText())));
+            TextPanel.setText(String.valueOf(0.01 * Integer.parseInt(TextPanel.getText())));
         }
 
         // division
         if (e.getSource() == this.fb1[3]) {
-            textField.setText(textField.getText().concat(" / "));
+            TextPanel.setText(TextPanel.getText().concat(" / "));
         }
 
         // multiplication
         if (e.getSource() == this.fb1[4]) {
-            textField.setText(textField.getText().concat(" * "));
+            TextPanel.setText(TextPanel.getText().concat(" * "));
         }
 
         // subtraction
         if (e.getSource() == this.fb1[5]) {
-            textField.setText(textField.getText().concat(" - "));
+            TextPanel.setText(TextPanel.getText().concat(" - "));
         }
 
         // addition
         if (e.getSource() == this.fb1[6]) {
-            textField.setText(textField.getText().concat(" + "));
+            TextPanel.setText(TextPanel.getText().concat(" + "));
         }
 
         // equals
         if (e.getSource() == this.fb1[7]) {
-            textField.setText(String.valueOf((eval(textField.getText()))));
+            TextPanel.setText(String.valueOf((eval(TextPanel.getText()))));
         }
 
         // next
         if (e.getSource() == this.fb1[8]) {
-            JPanel framePanel = Frame.getInstance().getPanel();
+//            JPanel framePanel = Frame.getInstance().getPanel();
+            JPanel framePanel = Calculator.getButtonPanelContainer();
             ((CardLayout) (framePanel.getLayout())).show(framePanel, "panel 2");
         }
         

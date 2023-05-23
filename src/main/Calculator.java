@@ -8,7 +8,7 @@ import window.TextPanel;
 import javax.swing.*;
 import java.awt.*;
 
-public class Main {
+public class Calculator {
 
     private final String title = "Calculator";
     private final int width = 400;
@@ -17,7 +17,11 @@ public class Main {
     private final JPanel buttonPanelContainer;
     private final TextPanel textPanel;
 
-    Main() {
+    private static Calculator instance;
+
+    Calculator() {
+        instance = this;
+
         buttonPanelContainer = new JPanel();
         buttonPanelContainer.setBounds(0, 100, 400, 500);
         buttonPanelContainer.setLayout(new CardLayout());
@@ -42,16 +46,19 @@ public class Main {
         showPanelOne();
     }
 
-    public JPanel getButtonPanelContainer() {
-        return buttonPanelContainer;
+    public static JPanel getButtonPanelContainer() {
+        return instance.buttonPanelContainer;
+    }
+
+    public Calculator getInstance() {
+        return instance;
     }
 
     public void showPanelOne() {
         ((CardLayout) buttonPanelContainer.getLayout()).show(buttonPanelContainer, "panel 1");
     }
 
-
     public static void main(String[] args) {
-        new Main();
+        new Calculator();
     }
 }

@@ -1,5 +1,6 @@
 package listen;
 
+import main.Calculator;
 import window.ButtonPanelTwo;
 import window.TextPanel;
 import javax.swing.*;
@@ -14,7 +15,8 @@ public class ButtonListenerTwo extends TextPanel implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         // previous
         if (e.getSource() == this.fb2[13]) {
-            JPanel framePanel = Frame.getInstance().getPanel();
+//            JPanel framePanel = Frame.getInstance().getPanel();
+            JPanel framePanel = Calculator.getButtonPanelContainer();
             ((CardLayout) (framePanel.getLayout())).show(framePanel, "panel 1");
         }
     }

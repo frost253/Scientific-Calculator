@@ -9,7 +9,7 @@ public class TextPanel {
     private final int height = 100;
 
     private JPanel panel;
-    private JTextField textField;
+    private static JTextField textField;
 
     public TextPanel() {
         textField = new JTextField();
@@ -20,6 +20,14 @@ public class TextPanel {
         panel = new JPanel();
         panel.setBounds(0, 0, 400, 100);
         panel.add(textField);
+    }
+
+    public static void setText(String text) {
+        textField.setText(text);
+    }
+
+    public static String getText() {
+        return textField.getText();
     }
 
     public JTextField getTextField() {
