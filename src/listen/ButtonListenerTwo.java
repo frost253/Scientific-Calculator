@@ -1,7 +1,6 @@
 package listen;
 
 import window.ButtonPanelTwo;
-import window.Frame;
 import window.TextPanel;
 import javax.swing.*;
 import java.awt.*;

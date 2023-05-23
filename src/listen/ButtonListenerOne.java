@@ -5,7 +5,6 @@ import java.awt.event.*;
 import javax.swing.*;
 import org.jetbrains.annotations.NotNull;
 import window.*;
-import window.Frame;
 
 public class ButtonListenerOne extends TextPanel implements ActionListener {
     public JButton[] fb1 = ButtonPanelOne.getFunButtonsOne();
